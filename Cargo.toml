@@ -1,0 +1,20 @@
+[package]
+name = "gh-notify-bridge"
+version = "0.1.0"
+edition = "2024"
+description = "Poll GitHub notifications and forward to UnifiedPush/ntfy. No FCM, no Google."
+license = "MIT"
+repository = "https://github.com/amaanq/gh-notify-bridge"
+keywords = ["github", "notifications", "unifiedpush", "ntfy"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+tiny_http = "0.12"
+ureq = { version = "2", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+lto = true
+strip = true
+opt-level = "z"
